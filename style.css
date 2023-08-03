@@ -16,6 +16,37 @@
     width: 100%;
 }
 
-#start, #status{
+#start, #status, #restart{
     font-size: 22px;
+}
+
+h4{
+    background-color: aliceblue;
+    line-height:2 ;
+    margin: 0px;
+}
+
+.modal-dialog{
+    width: 90%;
+}
+
+.instruction-image{
+    width: 45%;
+    display: inline-blockwa;
+}
+
+.chillmcnil{
+    font-size: 100px;
+    color: aquamarine;
+}
+
+.copy_right_footer{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    line-height: 3;
+    background-color: rgb(162, 162, 122);
+    color: azure;
+    text-align: center;
+    font-weight: bolder;
 }
