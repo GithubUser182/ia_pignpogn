@@ -1,3 +1,4 @@
+vid=""
 
 /*created by prashant shukla */
 
@@ -24,10 +25,19 @@ var ball = {
 function setup(){
   var canvas =  createCanvas(700,600);
   canvas.parent("canvas_place")
+  vid=createCapture(VIDEO)
+  vid.size(300,300)
+  vid.hide()
+  poseNet=ml5.poseNet(video, modelLoaded)
+}
+
+function modelLoaded(){
+  console.log("poseNet is Initialized")
 }
 
 
 function draw(){
+  image(vid, 0,0,300,300)
 
  background(0); 
 
