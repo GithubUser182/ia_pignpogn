@@ -1,4 +1,7 @@
-vid=""
+rightWristX=0
+rightWristY=0
+GameStatus=""
+rightWristScore=0
 
 /*created by prashant shukla */
 
@@ -29,17 +32,30 @@ function setup(){
   vid.size(300,300)
   vid.hide()
   poseNet=ml5.poseNet(vid, modelLoaded)
+  poseNet.on('pose' , gotPoses)
 }
 
 function modelLoaded(){
   console.log("poseNet is Initialized")
 }
 
+function gotPoses(me){
+	if(me.length > 0){
+		rightWristX=me[0].pose.rightWrist.x
+		rightWristY=me[0].pose.rightWrist.y
+    rightWristScore=me[0].pose.keypoints[10].score
+    console.log("rightWristScore = " + rightWristScore)
+	}
+}
 
 function draw(){
-  image(vid, 0,0,300,300)
+  r=random(255)
+  g=random(255)
+  b=random(255)
 
- background(0); 
+  background(0); 
+  
+  image(vid, 0,0,700,600)
 
  fill("black");
  stroke("black");
@@ -48,6 +64,13 @@ function draw(){
  fill("black");
  stroke("black");
  rect(0,0,20,700);
+console.log("working")
+ if(rightWristScore > 0.2){
+  console.log("hello")
+  fill("red")
+  stroke("red")
+  circle(rightWristX, rightWristY, 5)  
+ }
  
    //funtion paddleInCanvas call 
    paddleInCanvas();
