@@ -48,7 +48,15 @@ function gotPoses(me){
 	}
 }
 
+function startGame(){
+  GameStatus="Start"
+  document.getElementById("status").innerHTML="Game Loaded! Starting Soon..."
+}
+
 function draw(){
+  if(GameStatus == "Start"){
+
+  }
   r=random(255)
   g=random(255)
   b=random(255)
@@ -67,9 +75,9 @@ function draw(){
 console.log("working")
  if(rightWristScore > 0.2){
   console.log("hello")
-  fill("red")
-  stroke("red")
-  circle(rightWristX, rightWristY, 5)  
+  fill(r,g,b)
+  stroke(r,g,b)
+  circle(rightWristX+100, rightWristY+75, 5)  
  }
  
    //funtion paddleInCanvas call 
